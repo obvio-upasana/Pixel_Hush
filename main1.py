@@ -41,7 +41,12 @@ lal.place(x=40,y=20)
 #Right Side
 f1= Frame(root, bd=3, bg="white", width=350, height=370,relief=GROOVE)
 f1.place(x=400,y=80)
-text=Text()
-
+    #for the text input that is to be hideen in the image
+text1=Text(f1,font="Roboto 22", bg="white", fg="black", relief=GROOVE, wrap=WORD)
+text1.place(x=0, y=0, width=320, height=300)
+scrollbar=Scrollbar(f1)
+scrollbar.place(x=320, y=0, height=300)
+scrollbar.configure(command=text1.yview)
+text1.configure(yscrollcommand=scrollbar.set)
 
 root.mainloop()
