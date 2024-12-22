@@ -34,7 +34,7 @@ Label(root,text="Hush", background="#2f4155", foreground="white",font="arial 25 
 #Left Side
 f= Frame(root, bd=3, bg="black", width=350, height=370 ,relief=GROOVE)
 f.place(x=20,y=80)
-lal=Label(f,bg="black")
+lal=Label(f,bg="blue")
 lal.place(x=40,y=20)
 
 
