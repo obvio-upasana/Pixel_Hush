@@ -21,7 +21,7 @@ def showimage():
     lal.image=img
 
 def Hide():
-    Message=text.get(1.0,END)
+    Message=text1.get(1.0,END)
     secret=lsb.hide(str(filename),Message)
     secret.save("secret.png")
     
@@ -32,21 +32,29 @@ Label(root,text="Hush", background="#2f4155", foreground="white",font="arial 25 
 
 
 #Left Side
-f= Frame(root, bd=3, bg="black", width=350, height=370 ,relief=GROOVE)
-f.place(x=20,y=80)
-lal=Label(f,bg="blue")
+f1= Frame(root, bd=3, bg="black", width=350, height=370 ,relief=GROOVE)
+f1.place(x=20,y=80)
+lal=Label(f1,bg="blue")
 lal.place(x=40,y=20)
 
 
 #Right Side
-f1= Frame(root, bd=3, bg="white", width=350, height=370,relief=GROOVE)
-f1.place(x=400,y=80)
+f2= Frame(root, bd=3, bg="white", width=350, height=370,relief=GROOVE)
+f2.place(x=400,y=80)
     #for the text input that is to be hideen in the image
-text1=Text(f1,font="Roboto 22", bg="white", fg="black", relief=GROOVE, wrap=WORD)
+text1=Text(f2,font="Roboto 22", bg="white", fg="black", relief=GROOVE, wrap=WORD)
 text1.place(x=0, y=0, width=320, height=300)
-scrollbar=Scrollbar(f1)
+scrollbar=Scrollbar(f2)
 scrollbar.place(x=320, y=0, height=300)
 scrollbar.configure(command=text1.yview)
 text1.configure(yscrollcommand=scrollbar.set)
+
+#Third Side
+f3=Frame(root,bd=3,bg='#2f4155', width=335, height=95, relief=GROOVE)
+f3.place(x=20, y=450)
+
+Button(f3, text="OPEN", width=10, height=2, font="arial 14").place(x=25,y=24)
+Button(f3, text="SAVE", width=10, height=2, font="arial 14").place(x=200,y=24)
+Label(f3, text="Picture, Image, Photo File", bg='#2f4155', fg="yellow").place(x=5,y=1)
 
 root.mainloop()
