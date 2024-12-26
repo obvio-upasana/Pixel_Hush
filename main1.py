@@ -49,12 +49,15 @@ scrollbar.place(x=320, y=0, height=300)
 scrollbar.configure(command=text1.yview)
 text1.configure(yscrollcommand=scrollbar.set)
 
-#Third Side
+#Left Bottom
 f3=Frame(root,bd=3,bg='#2f4155', width=335, height=95, relief=GROOVE)
 f3.place(x=20, y=450)
-
-Button(f3, text="OPEN", width=10, height=2, font="arial 14").place(x=25,y=24)
-Button(f3, text="SAVE", width=10, height=2, font="arial 14").place(x=200,y=24)
+    #Buttons for open and save an image
+Button(f3, text="OPEN", width=10, height=2, font="arial 14",command=showimage).place(x=25,y=24)
+Button(f3, text="SAVE", width=10, height=2, font="arial 14",command=save).place(x=200,y=24)
 Label(f3, text="Picture, Image, Photo File", bg='#2f4155', fg="yellow").place(x=5,y=1)
 
+#Right Bottom
+f4=Frame(root,bd=3,bg='#2f4155', width=335, height=95, relief=GROOVE)
+f4.place(x=400,y=310)
 root.mainloop()
