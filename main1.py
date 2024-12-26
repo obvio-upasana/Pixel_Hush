@@ -25,7 +25,17 @@ def Hide():
     secret=lsb.hide(str(filename),Message)
     secret.save("secret.png")
     
+def Show():
+    clear_message=lsb.reveal(filename)
+    text1.delete(1.0, END)
+    text1.insert(END, clear_message)
 
+def Save():
+    filename = filedialog.asksaveasfilename(initialdir=os.getcwd(), title="Save as")
+    if filename:
+        os.replace("secret.png", filename + ".png")
+
+#UI Elements
 
 #Title
 Label(root,text="Hush", background="#2f4155", foreground="white",font="arial 25 bold underline").place(x=30,y=20)
@@ -54,10 +64,15 @@ f3=Frame(root,bd=3,bg='#2f4155', width=335, height=95, relief=GROOVE)
 f3.place(x=20, y=450)
     #Buttons for open and save an image
 Button(f3, text="OPEN", width=10, height=2, font="arial 14",command=showimage).place(x=25,y=24)
-Button(f3, text="SAVE", width=10, height=2, font="arial 14",command=save).place(x=200,y=24)
+Button(f3, text="SAVE", width=10, height=2, font="arial 14",command=Save).place(x=200,y=24)
 Label(f3, text="Picture, Image, Photo File", bg='#2f4155', fg="yellow").place(x=5,y=1)
 
 #Right Bottom
 f4=Frame(root,bd=3,bg='#2f4155', width=335, height=95, relief=GROOVE)
-f4.place(x=400,y=310)
+f4.place(x=400,y=450)
+    #Buttons
+Button(f4, text="HIDE", width=10, height=2, font="arial 14 bold",command=Hide).place(x=25,y=24)
+Button(f4,text="SHOW",width=10, height=2, font="arial 14 bold",command=Show).place(x=200,y=24)
+Label(f4, text="Picture, Image, Photo File", bg='#2f4155', fg="yellow").place(x=5,y=1)
+
 root.mainloop()
